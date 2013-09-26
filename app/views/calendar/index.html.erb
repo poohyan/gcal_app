@@ -1,0 +1,67 @@
+<h1>Calendar List</h1>
+
+<%= form_tag('getDetail',:target=>["_blank"]) do %>
+<div id="gcal">
+<table border="0" width="">
+  <tr>
+    <th>Calendar Name</th>
+  </tr>
+
+<% @entries.each do |e| %>
+<% if e.accessRole == "owner" then %>
+  <tr>
+    <td bgcolor=<%= e.backgroundColor%> title=<%=e.id %> >
+    	<font color=<%= e.foregroundColor %> >
+    		<label ><%= radio_button_tag("callist", e.id, checked = false) %> <%= e.summary %> </label>
+    	</font>
+    </td>
+
+  </tr>
+  <% end %>
+<% end %>
+</table>
+</div>
+<br />
+
+<div>
+	<div>
+		<lable>start date
+		<%= select_date  @start_date, :prefix => "start" %>
+	</lable>
+		
+	</div>
+	<div>
+		<lable>end date
+		<%= select_date  @end_date, :prefix => "end" %>
+		</lable>
+	</div>
+	<div>
+		<lable>description<%=check_box_tag :description,"1",true%></lable>
+	</div>
+	<div>
+		<lable>summry<%=check_box_tag :summary,"1",true%></lable>
+	</div>
+	<div>
+		<lable>estimate<%=check_box_tag :estimate,"1",false%>&nbsp
+			1日の予定時間&nbsp&nbsp
+			<%= text_field :estimate_time, :name, :value => "8", :size => "4" %>
+		</lable>
+	</div>
+</div>			
+<br />
+<br />
+
+<%= button_tag('カレンダー明細を表示', :id => 'newtab', :name => 'newtab', :value => 'newtab') %>
+<% if '2' == $auth_type then %>
+    <%= button_tag('googleDriveに出力', :id => 'gdirve', :name => 'gdirve', :value => 'gdirve') %>
+<% end %>
+
+
+<% end %>
+
+
+
+ 	<%= render 'shared/footer_sub' %>
+
+
+

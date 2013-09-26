@@ -1,0 +1,102 @@
+<h1>
+
+  Calendar Details
+
+<% if ("1" == @params[:summary]) %>
+  and Summry
+<% end %>
+
+</h1>
+
+
+<h2><%= DateTime.new(params[:start][:year].to_i, params[:start][:month].to_i, params[:start][:day].to_i, 0, 0, 0, 0.375).strftime("%Y/%m/%d") %> 〜 <%= DateTime.new(params[:end][:year].to_i, params[:end][:month].to_i, params[:end][:day].to_i, 0, 0, 0, 0.375).strftime("%Y/%m/%d") %></h2>
+
+<div id="gcal">
+<table border="1" width="" summary="日別詳細">
+  <tr bgcolor = "#808080" >
+    <font color="#FFFFFF">
+    <th>Date</th>
+    <th>summary</th>
+    <th>start time</th>
+    <th>end time</th>
+    <th>elapsed time</th>
+  <% if ("1" == @params[:description]) %>
+    <th>Description</th>
+    <% end %>
+    </font>
+  </tr>
+
+  <%  bgcolor = "#DCDCDC" 
+    escDate = "" %>
+<% @events.each do |e| %>
+  <% unless (escDate == e.start.dateTime.strftime("%m/%d")) %>
+    <% bgcolor = bgcolor == "#FFFFFF" ? "#DCDCDC" : "#FFFFFF" %>
+    <% escDate = e.start.dateTime.strftime("%m/%d") %>
+  <% end %>
+  <tr bgcolor = <%= bgcolor%>>
+    <td>
+      <%= e.start.dateTime.strftime("%m/%d") %>
+    </td>
+    <td>
+      <%= e.summary %>
+    </td>
+    <td>
+      <%= e.start.dateTime.strftime("%H:%M") %>
+    </td>
+    <td>
+      <%= e.end.dateTime.strftime("%H:%M") %>
+    </td>
+    <td>
+      <%= Time.now.midnight.advance(:seconds => (e.end.dateTime.to_time.to_i - e.start.dateTime.to_time.to_i)).strftime("%H:%M") %>
+    </td>
+  <% if ("1" == @params[:description]) %>
+    <td>
+      <!-- 
+      <% e.description.to_s.split(" ", 3).each do |v| %>
+        <%= v %> <br />
+      <% end %>
+      -->
+      <%= e.description.to_s.split(" ", 3)[2] %>
+    </td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+
+<div>
+<% if ("1" == @params[:summary]) %>
+  <table border="1" width="" summary="合計">
+  <tr bgcolor = "#808080" >
+    <th>summary</th>
+    <th>elapsed time</th>
+    <th>elapsed time</th>
+  </tr>
+  <% @summary.each do |k, v| %>
+  <tr>
+    <td>
+        <%= k %>
+    </td>
+    <td align="right">
+        <%= v[:p1] %>
+    </td>
+    <td align="right">
+        <%= v[:p2] %>
+    </td>
+  </tr>
+  <% end %>
+
+  </table>
+
+<% end %>
+
+
+</div>
+
+
+<br />
+
+
+

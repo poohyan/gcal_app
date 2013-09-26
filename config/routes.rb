@@ -1,5 +1,22 @@
 GcalApp::Application.routes.draw do
-  # The priority is based upon order of creation:
+  # get 'start/index'
+  root :to => 'start#index'
+  match 'signout' => 'start#signout'
+
+  match 'oauth2authorize' => 'auth#oauth2authorize'        
+  match 'oauth2callback'  => 'auth#oauth2callback'         
+  # root :to => 'auth#result'
+  match 'go-auth'  => 'auth#result' 
+
+  resources :users
+
+  resources :calender do
+    collection do
+      post 'getDetail'
+    end
+  end
+
+    # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
@@ -46,13 +63,13 @@ GcalApp::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with 'root'
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
 
-  # See how all your routes lay out with "rake routes"
+  # See how all your routes lay out with 'rake routes'
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+   match ':controller(/:action(/:id))(.:format)'
 end
