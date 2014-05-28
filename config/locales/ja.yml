@@ -1,0 +1,35 @@
+# Sample localization file for japanese. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ja:
+  view:
+    start:
+      title: "グーグルアカウントでログインしてください"
+      cal_only: "calendarのみアクセス"
+      cal_drive: "calendarとdriveにアクセス"
+    cal:
+      list: "カレンダー一覧"
+      s_date: "開始日"
+      e_date: "終了日"
+      desc: "詳細を表示する"
+      sum: "合計欄を表示する"
+      time_detail: "分単位の合計を表示する"
+      button1: "カレンダ明細を表示(別窓)"
+      button2: "googleドライブに出力"
+    detail:
+      title: 作業一覧
+      and_title: 及び作業合計
+      date: 日付
+      summry: 作業項目
+      s_time: 開始時間
+      e_time: 終了時間
+      elapsed: 作業時間
+      desc: 作業詳細
+    summry:
+      title: 作業区分別合計
+      summry: 作業項目
+      elapsed1: 作業時間(h)
+      elapsed2: 作業時間(h)
+      sum: 合計
+
+

@@ -1,9 +1,9 @@
 <h1>
 
-  Calendar Details
+  <%= t('view.detail.title') %>
 
 <% if ("1" == @params[:summary]) %>
-  and Summry
+        <%= t('view.detail.and_title') %>
 <% end %>
 
 </h1>
@@ -15,13 +15,13 @@
 <table border="1" width="" summary="日別詳細">
   <tr bgcolor = "#808080" >
     <font color="#FFFFFF">
-    <th>Date</th>
-    <th>summary</th>
-    <th>start time</th>
-    <th>end time</th>
-    <th>elapsed time</th>
+    <th><%= t('view.detail.date') %></th>
+    <th><%= t('view.detail.summry') %></th>
+    <th><%= t('view.detail.s_time') %></th>
+    <th><%= t('view.detail.e_time') %></th>
+    <th><%= t('view.detail.elapsed') %></th>
   <% if ("1" == @params[:description]) %>
-    <th>Description</th>
+    <th><%= t('view.detail.desc') %></th>
     <% end %>
     </font>
   </tr>
@@ -46,7 +46,7 @@
     <td>
       <%= e.end.dateTime.strftime("%H:%M") %>
     </td>
-    <td>
+    <td align="right">
       <%= Time.now.midnight.advance(:seconds => (e.end.dateTime.to_time.to_i - e.start.dateTime.to_time.to_i)).strftime("%H:%M") %>
     </td>
   <% if ("1" == @params[:description]) %>
@@ -68,20 +68,24 @@
 
 <div>
 <% if ("1" == @params[:summary]) %>
-  <table border="1" width="" summary="合計">
+  <table border="1" width="" summary="<%= t('view.summry.title') %>">
   <tr bgcolor = "#808080" >
-    <th>summary</th>
-    <th>elapsed time</th>
-    <th>elapsed time</th>
+    <th><%= t('view.summry.summry') %></th>
+    <% if ("1" == @params[:time_detal]) %>
+        <th><%= t('view.summry.elapsed1') %></th>
+    <% end %>
+    <th><%= t('view.summry.elapsed2') %></th>
   </tr>
   <% @summary.each do |k, v| %>
   <tr>
     <td>
         <%= k %>
     </td>
-    <td align="right">
-        <%= v[:p1] %>
-    </td>
+    <% if ("1" == @params[:time_detal]) %>
+        <td align="right">
+            <%= v[:p1] %>
+        </td>
+    <% end %>
     <td align="right">
         <%= v[:p2] %>
     </td>

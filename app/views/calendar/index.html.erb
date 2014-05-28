@@ -4,7 +4,7 @@
 <div id="gcal">
 <table border="0" width="">
   <tr>
-    <th>Calendar Name</th>
+    <th><%= t('view.cal.list') %></th>
   </tr>
 
 <% @entries.each do |e| %>
@@ -25,35 +25,40 @@
 
 <div>
 	<div>
-		<lable>start date
-		<%= select_date  @start_date, :prefix => "start" %>
+		<lable><%= t('view.cal.s_date') %>
+                   <%= select_date  @start_date, :prefix => "start" %>
 	</lable>
-		
+
 	</div>
 	<div>
-		<lable>end date
-		<%= select_date  @end_date, :prefix => "end" %>
+		<lable><%= t('view.cal.e_date') %>
+                   <%= select_date  @end_date, :prefix => "end" %>
 		</lable>
 	</div>
 	<div>
-		<lable>description<%=check_box_tag :description,"1",true%></lable>
+		<lable><%= t('view.cal.desc') %><%=check_box_tag :description,"1",true%></lable>
 	</div>
 	<div>
-		<lable>summry<%=check_box_tag :summary,"1",true%></lable>
+		<lable><%= t('view.cal.sum') %><%=check_box_tag :summary,"1",true%></lable>
 	</div>
+    <div>
+        <lable><%= t('view.cal.time_detail') %><%=check_box_tag :time_detal, "1",false%></lable>
+    </div>
+<!--
 	<div>
 		<lable>estimate<%=check_box_tag :estimate,"1",false%>&nbsp
 			1日の予定時間&nbsp&nbsp
 			<%= text_field :estimate_time, :name, :value => "8", :size => "4" %>
 		</lable>
 	</div>
-</div>			
+-->
+</div>
 <br />
 <br />
 
-<%= button_tag('カレンダー明細を表示', :id => 'newtab', :name => 'newtab', :value => 'newtab') %>
+<%= button_tag(t('view.cal.button1'), :id => 'newtab', :name => 'newtab', :value => 'newtab') %>
 <% if '2' == $auth_type then %>
-    <%= button_tag('googleDriveに出力', :id => 'gdirve', :name => 'gdirve', :value => 'gdirve') %>
+    <%= button_tag(t('view.cal.button2'), :id => 'gdirve', :name => 'gdirve', :value => 'gdirve') %>
 <% end %>
 
 
@@ -61,7 +66,7 @@
 
 
 
- 	<%= render 'shared/footer_sub' %>
+<%= render 'shared/footer_sub' %>
 
 
 

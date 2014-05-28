@@ -2,4 +2,37 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  view:
+    start:
+      title: "Start Login your google account"
+      cal_only: "use by Calendar"
+      cal_drive: "use by Calendar and Docs"
+    cal:
+      list: "Calendar Name"
+      s_date: "start date"
+      e_date: "end date"
+      desc: "description"
+      sum: "summry"
+      time_detail: "By time elapsed"
+      button1: "Let's output calender detail"
+      button2: "Let's output google drive"
+    detail:
+      title: Calendar Details
+      and_title: and Summry
+      date: Date
+      summry: summry
+      s_time: Start Time
+      e_time: End Time
+      elapsed: Elapsed Time
+      desc: Description
+    summry:
+      title: Total
+      summry: summry
+      elapsed1: elapsed (by time)
+      elapsed2: elapsed (by MD)
+      sum: Total Time
+
+
+
+
+
