@@ -18,6 +18,8 @@ group :development do
   # gem 'ruby-debug-ide19', :require => 'ruby-debug-ide'
   # gem 'ruby-debug19', :require => 'ruby-debug'
   # gem 'debugger'
+  gem 'debugger'
+
 end
 
 # Gems used only for assets and not required
@@ -58,5 +60,3 @@ end
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'debugger'
