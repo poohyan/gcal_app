@@ -8,7 +8,11 @@ skip_filter :oauth2
   def index
     @auth_type = ""
   	# tokenのクリーニング
-  	TokenPair.delete_all("datetime(expires_in + issued_at)  < datetime('now', 'utc')")
+    if Rails.env == 'development'
+      TokenPair.delete_all("datetime(expires_in + issued_at)  < datetime('now', 'utc')")
+  	else
+      TokenPair.delete_all("expires_in + issued_at  < extract(epoch from timestamp 'now'))")
+    end
   end
 
   def signout
