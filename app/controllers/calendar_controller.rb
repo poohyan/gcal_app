@@ -54,7 +54,8 @@ class CalendarController < ApplicationController
                                              'orderBy' => 'startTime',
                                              'singleEvents' => true,
                                              'timeMax' => end_date,
-                                             'timeMin' => start_date
+                                             'timeMin' => start_date,
+                                             'timeZone' => 'JST'
                              })
 
     @events = []
@@ -126,7 +127,7 @@ class CalendarController < ApplicationController
       puts 'newtab'
       respond_to do |format|
         format.html # show.html.erb
-        format.json { renderå :json => @events }
+        format.json { render :json => @events }
       end
     elsif params[:gdrive] = 'gdrive'
       puts 'googleDrive'

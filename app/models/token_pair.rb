@@ -7,7 +7,7 @@ class TokenPair < ActiveRecord::Base
       :access_token  => object.access_token,
       :expires_in    => object.expires_in,
       :issued_at     => object.issued_at,
-      :token_type     => "Bearer",
+      :token_type     => 'Bearer'
       )
   end
        
@@ -17,7 +17,7 @@ class TokenPair < ActiveRecord::Base
       :access_token  => self.access_token,       
       :expires_in    => self.expires_in,         
       :issued_at     => Time.at(self.issued_at),
-      :token_type     => self.token_type,
+      :token_type     => self.token_type
     }
   end
 
