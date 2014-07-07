@@ -92,7 +92,8 @@ class CalendarController < ApplicationController
                                                'orderBy' => 'startTime',
                                                'singleEvents' => true,
                                                'timeMax' => end_date,
-                                               'timeMin' => start_date
+                                               'timeMin' => start_date,
+                                               'timeZone' => 'JST'
                                })
     end
 

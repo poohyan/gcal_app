@@ -18,9 +18,9 @@ class AuthController < ApplicationController
         else         
           TokenPair.new        
         end
-
       token_pair.update_token!(@client.authorization)
-      session[:token_id] = token_pair.id 
+      p @client.authorization
+      session[:token_id] = token_pair.id
       # redirect_to '/calender/callist'
       redirect_to "/calendar/index"
     rescue Exception => e
