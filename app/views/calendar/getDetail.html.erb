@@ -41,13 +41,13 @@
       <%= e.summary %>
     </td>
     <td>
-      <%= e.start.dateTime.strftime("%H:%M") %>
+      <%= e.start.dateTime.strftime("%H:%M JST") %>
     </td>
     <td>
-      <%= e.end.dateTime.strftime("%H:%M") %>
+      <%= e.end.dateTime.strftime("%H:%M JST") %>
     </td>
     <td align="right">
-      <%= Time.now.midnight.advance(:seconds => (e.end.dateTime.to_time.to_i - e.start.dateTime.to_time.to_i)).strftime("%H:%M") %>
+      <%= Time.now.midnight.advance(:seconds => (e.end.dateTime.to_time.to_i - e.start.dateTime.to_time.to_i)).strftime("%H:%M JST") %>
     </td>
   <% if ("1" == @params[:description]) %>
     <td>
