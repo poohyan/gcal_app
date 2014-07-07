@@ -1,0 +1,21 @@
+                    root        /                                      start#index
+                 signout        /signout(.:format)                     start#signout
+         oauth2authorize        /oauth2authorize(.:format)             auth#oauth2authorize
+          oauth2callback        /oauth2callback(.:format)              auth#oauth2callback
+                                /go-auth(.:format)                     auth#result
+                   users GET    /users(.:format)                       users#index
+                         POST   /users(.:format)                       users#create
+                new_user GET    /users/new(.:format)                   users#new
+               edit_user GET    /users/:id/edit(.:format)              users#edit
+                    user GET    /users/:id(.:format)                   users#show
+                         PUT    /users/:id(.:format)                   users#update
+                         DELETE /users/:id(.:format)                   users#destroy
+getDetail_calender_index POST   /calender/getDetail(.:format)          calender#getDetail
+          calender_index GET    /calender(.:format)                    calender#index
+                         POST   /calender(.:format)                    calender#create
+            new_calender GET    /calender/new(.:format)                calender#new
+           edit_calender GET    /calender/:id/edit(.:format)           calender#edit
+                calender GET    /calender/:id(.:format)                calender#show
+                         PUT    /calender/:id(.:format)                calender#update
+                         DELETE /calender/:id(.:format)                calender#destroy
+                                /:controller(/:action(/:id))(.:format) :controller#:action
