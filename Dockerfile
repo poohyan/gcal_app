@@ -12,7 +12,9 @@ WORKDIR $DIR
 copy . $DIR
 
 RUN bundle install && bundle exec rake db:migrate
-CMD ['bundle exec rails s']
+
+EXPOSE  3000
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
 
 # docker build -t myapp . # Build container with current dockerfile
 # docker run -it myapp /bin/bash # Run interactive shell on container

@@ -17,15 +17,9 @@ skip_filter :oauth2
 
   def signout
 
-    token_pair = TokenPair.find_by_id(session[:token_id]).access_token
-    url = 'https://accounts.google.com/o/oauth2/revoke?token=' + token_pair
-
-    puts "access_token:" + token_pair
-    puts url
-
-    response = Net::HTTP.get_print URI.parse(url)
-    puts response
-
+    if @client
+      @client.revokeToken;
+    end
     TokenPair.find_by_id(session[:token_id]).delete
 
     redirect_to('/')

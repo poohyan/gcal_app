@@ -8,6 +8,9 @@ gem 'therubyracer'
 # Bundle edge Rails instead:
 # gem 'rails', :git https://www.evernote.com/shard/s23/nl/2448856/01fdc494-8919-4ada-86a6-8abfb6ef5026/=> 'git://github.com/rails/rails.git'
 
+#semantic UI Framework
+gem 'semantic-ui-sass'
+
 group :development do
   gem 'sqlite3', '1.3.5'
   # gem 'debugger-ruby_core_source'

@@ -1,66 +1,68 @@
-<h1>Calendar List</h1>
+<h1 class="ui header">Calendar List</h1>
 
-<%= form_tag('getDetail',:target=>["_blank"]) do %>
-<div id="gcal">
-<table border="0" width="">
-  <tr>
-    <th><%= t('view.cal.list') %></th>
-  </tr>
+<%= form_tag('getDetail', :target => ["_blank"], class: "ui form") do %>
+  <div id="gcal">
+    <table border="0" width="">
+      <tr>
+        <th><%= t('view.cal.list') %></th>
+      </tr>
 
-<% @entries.each do |e| %>
-<% if e.accessRole == "owner" then %>
-  <tr>
-    <td bgcolor=<%= e.backgroundColor%> title=<%=e.id %> >
-    	<font color=<%= e.foregroundColor %> >
-    		<label ><%= radio_button_tag("callist", e.id, checked = false) %> <%= e.summary %> </label>
-    	</font>
-    </td>
+      <% @entries.each do |e| %>
+        <% if e.accessRole == "owner" then %>
+          <tr>
+            <td bgcolor=<%= e.backgroundColor %> title=<%= e.id %> >
+              <font color=<%= e.foregroundColor %>>
+                <label><%= radio_button_tag("callist", e.id, checked = false) %> <%= e.summary %> </label>
+              </font>
+            </td>
 
-  </tr>
-  <% end %>
-<% end %>
-</table>
-</div>
-<br />
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+  <br/>
 
-<div>
-	<div>
-		<lable><%= t('view.cal.s_date') %>
-                   <%= select_date  @start_date, :prefix => "start" %>
-	</lable>
+  <div>
+    <div class="field">
+      <lable><%= t('view.cal.s_date') %>
+        <%= select_date @start_date, :prefix => "start" %>
+      </lable>
 
-	</div>
-	<div>
-		<lable><%= t('view.cal.e_date') %>
-                   <%= select_date  @end_date, :prefix => "end" %>
-		</lable>
-	</div>
-	<div>
-		<lable><%= t('view.cal.desc') %><%=check_box_tag :description,"1",true%></lable>
-	</div>
-	<div>
-		<lable><%= t('view.cal.sum') %><%=check_box_tag :summary,"1",true%></lable>
-	</div>
-    <div>
-        <lable><%= t('view.cal.time_detail') %><%=check_box_tag :time_detal, "1",false%></lable>
     </div>
-<!--
+    <div class="field">
+      <lable><%= t('view.cal.e_date') %>
+        <%= select_date @end_date, :prefix => "end" %>
+      </lable>
+    </div>
+    <div class="field">
+      <lable><%= t('view.cal.desc') %><%= check_box_tag :description, "1", true %></lable>
+    </div>
+    <div class="field">
+      <lable><%= t('view.cal.sum') %><%= check_box_tag :summary, "1", true %></lable>
+    </div>
+    <div class="field">
+      <lable><%= t('view.cal.time_detail') %><%= check_box_tag :time_detal, "1", false %></lable>
+    </div>
+    <!--
 	<div>
-		<lable>estimate<%=check_box_tag :estimate,"1",false%>&nbsp
+		<lable>estimate<%= check_box_tag :estimate, "1", false %>&nbsp
 			1日の予定時間&nbsp&nbsp
 			<%= text_field :estimate_time, :name, :value => "8", :size => "4" %>
 		</lable>
 	</div>
 -->
-</div>
-<br />
-<br />
-
-<%= button_tag(t('view.cal.button1'), :id => 'newtab', :name => 'newtab', :value => 'newtab') %>
-<% if '2' == $auth_type then %>
-    <%= button_tag(t('view.cal.button2'), :id => 'gdirve', :name => 'gdirve', :value => 'gdirve') %>
-<% end %>
-
+  </div>
+  <br/>
+  <br/>
+  <div class="field">
+    <%= button_tag(t('view.cal.button1'), :id => 'newtab', :name => 'newtab', :value => 'newtab', class: "ui orange button") %>
+  </div>
+  <div class="field">
+    <% if '2' == $auth_type then %>
+      <%= button_tag(t('view.cal.button2'), :id => 'gdirve', :name => 'gdirve', :value => 'gdirve', class: "ui green button") %>
+    <% end %>
+  </div>
 
 <% end %>
 
