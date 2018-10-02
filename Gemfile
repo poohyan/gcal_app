@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '5.2.1'
+ruby '2.5.1'
 
 gem 'rails-i18n'
 gem 'therubyracer'
@@ -12,7 +13,7 @@ gem 'therubyracer'
 gem 'semantic-ui-sass'
 
 group :development do
-  gem 'sqlite3', '1.3.5'
+  gem 'sqlite3'
   # gem 'debugger-ruby_core_source'
   # gem 'linecache19', '>= 0.5.13', :git => 'https://github.com/robmathews/linecache19-0.5.13.git'
   # gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
@@ -29,28 +30,22 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',    '3.2.5'
-  gem 'coffee-rails', '3.2.2'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '1.2.3'
+  gem 'uglifier'
 end
 
-gem 'jquery-rails', '2.0.2'
-
-group :assets do
-  gem 'jquery-ui-rails'
-end
 
 gem 'google-api-client'
 
 
-gem 'twitter-bootstrap-rails'
-
 group :production do
-  gem 'pg', '0.12.2'
+  gem 'sqlite3'
+  # gem 'pg', '0.12.2'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

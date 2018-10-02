@@ -1,4 +1,4 @@
-FROM ruby:1.9.3
+FROM ruby:2.5.1
 
 ENV DIR /var/src/gcal_app
 
@@ -9,12 +9,15 @@ RUN mkdir -p $DIR
 
 WORKDIR $DIR
 
-copy . $DIR
+ADD Gemfile $DIR
+RUN bundle install
 
-RUN bundle install && bundle exec rake db:migrate
-
-EXPOSE  3000
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+#copy . $DIR
+#
+#RUN bundle install && bundle exec rake db:migrate
+#
+#EXPOSE  3000
+#CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
 
 # docker build -t myapp . # Build container with current dockerfile
 # docker run -it myapp /bin/bash # Run interactive shell on container
