@@ -2,14 +2,14 @@ version: '3'
 services:
   gcal:
     build: .
-    image: gcal_app
+    image: gcal_app:2.5.1
     container_name: 'gcal'
     command: /bin/bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b 0.0.0.0"
     tty: true
     ports:
     - "13000:3000"
     environment:
-      GOOGLE_CLIENT_ID:
-      GOOGLED_CLIENT_SECRET:
+      GOOGLE_CLIENT_ID: '609724221175-qpc4pdito7snobvon9o8g7bmoqc91i1c.apps.googleusercontent.com'
+      GOOGLED_CLIENT_SECRET: 'fV8iaxCHj6rkq6uPXUTDVgKn'
     volumes:
     - .:/var/src/gcal_app

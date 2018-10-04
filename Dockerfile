@@ -9,15 +9,16 @@ RUN mkdir -p $DIR
 
 WORKDIR $DIR
 
-ADD Gemfile $DIR
-RUN bundle install
+#ADD Gemfile $DIR
+#RUN bundle install
 
-#copy . $DIR
-#
-#RUN bundle install && bundle exec rake db:migrate
-#
-#EXPOSE  3000
-#CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+copy . $DIR
+
+RUN bundle install --path vendor/bundler \
+ && bundle exec rake db:migrate
+
+EXPOSE  3000
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
 
 # docker build -t myapp . # Build container with current dockerfile
 # docker run -it myapp /bin/bash # Run interactive shell on container

@@ -5,7 +5,8 @@ ruby '2.5.1'
 
 gem 'rails-i18n'
 gem 'therubyracer'
-
+gem 'bootsnap'
+gem 'listen'
 # Bundle edge Rails instead:
 # gem 'rails', :git https://www.evernote.com/shard/s23/nl/2448856/01fdc494-8919-4ada-86a6-8abfb6ef5026/=> 'git://github.com/rails/rails.git'
 
@@ -14,6 +15,7 @@ gem 'semantic-ui-sass'
 
 group :development do
   gem 'sqlite3'
+  gem 'listen'
   # gem 'debugger-ruby_core_source'
   # gem 'linecache19', '>= 0.5.13', :git => 'https://github.com/robmathews/linecache19-0.5.13.git'
   # gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
@@ -41,7 +43,7 @@ end
 
 
 gem 'google-api-client'
-
+gem 'googleauth'
 
 group :production do
   gem 'sqlite3'

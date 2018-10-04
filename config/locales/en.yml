@@ -1,38 +1,33 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  view:
-    start:
-      title: "Start Login your google account"
-      cal_only: "use by Calendar"
-      cal_drive: "use by Calendar and Docs"
-    cal:
-      list: "Calendar Name"
-      s_date: "start date"
-      e_date: "end date"
-      desc: "description"
-      sum: "summry"
-      time_detail: "By time elapsed"
-      button1: "Let's output calender detail"
-      button2: "Let's output google drive"
-    detail:
-      title: Calendar Details
-      and_title: and Summry
-      date: Date
-      summry: summry
-      s_time: Start Time
-      e_time: End Time
-      elapsed: Elapsed Time
-      desc: Description
-    summry:
-      title: Total
-      summry: summry
-      elapsed1: elapsed (by time)
-      elapsed2: elapsed (by MD)
-      sum: Total Time
-
-
-
-
-
+  hello: "Hello world"
